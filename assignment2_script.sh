@@ -8,7 +8,7 @@ mkdir ./assignment-data/IMAGES
 
 # Find all .jpg files, rename the files, then copy them to IMAGES
 echo Copying .jpg images from all folders.
-find ./assignment-data -type f -name *.jpg -exec bash -c '
+find ./assignment-data -path ./assignment-data/IMAGES -prune -o -type f -name *.jpg -exec bash -c '
 	for img do
 		# echo Copying $(basename $img) from $(dirname $img) and renaming to $(basename $(dirname $img))_$(basename $img).
 		cp $img "./assignment-data/IMAGES/$(basename $(dirname $img))_$(basename $img)" 
@@ -22,7 +22,7 @@ mkdir ./assignment-data/DATA_ANALYSIS
 echo Copying all files except .jpg from all folders.
 
 # Repeat find command but exclude .jpg files
-find ./assignment-data -type f ! -name  *.jpg  -exec bash -c ' # specify -type f to avoid copying directories
+find ./assignment-data -path ./assignment-data/DATA_ANALYSIS -prune -o -type f ! -name  *.jpg  -exec bash -c ' # specify -type f to avoid copying directories
 	for file do
 		# echo Copying $(basename $file) from $(dirname $file) and renaming to $(basename $(dirname $img))_$(basename $img).
 		cp $file "./assignment-data/DATA_ANALYSIS/$(basename $(dirname $file))_$(basename $file)" 
@@ -73,8 +73,15 @@ echo This is used in the form "diff {option} ... {path 1} {path 2}". \
 	compare the names of folders under assignment-data. If any of the files within the \
 	folders are missing, then "diff" will not output a difference. The file names will \
 	have to be changed to those that are of the hard drive folder and the main computer. 
+
 echo Some of the options include "-r" for recursive, "-i" to ignore case, and "-y" to show \
 	a side-by-side comparison. The following is the output of \
 	"diff assignment-data assignment-data-copy:"
 
 diff assignment-data assignment-data-copy
+
+
+echo -------------------- PART FIVE --------------------
+echo Number of occurences of the word "photo" in all files within all directories \
+	under assignment-data:
+grep -o -r 'photo' assignment-data | wc -l
