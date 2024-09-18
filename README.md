@@ -13,4 +13,4 @@ E.g., Task 1 is run with `bash task1.sh`.
 The files currently in the directory are shown post-processing. Replace `./assignment-data` with the unprocessed information and re-run the script to test. 
 
 The `assignment-data-copy` folder contains the original data. This is used for the comparison using `diff` for task 4. The explanation for using `diff` is included in the script output.
- 
+The `assignment-data-proper` folder contains the manually edited data to compare the post-processed data to.
