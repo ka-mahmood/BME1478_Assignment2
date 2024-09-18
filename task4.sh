@@ -1,20 +1,6 @@
 #!/bin/bash
 
-bash task1.sh
-bash task2.sh
-bash task3.sh
-bash task4.sh
-bash task5.sh
-
-echo -------------------- PART THREE --------------------
-echo Renaming all note files to notes.txt
-
-# Rename all the files containing "note" to "notes.txt"
-find ./assignment-data -name "*note*" -exec bash -c '
-	for file do
-		mv $file $(dirname $file)/notes.txt
-	done
-' -- {} \;
+# TASK 4
 
 echo -------------------- PART FOUR --------------------
 echo Checking that assignment-data folder is intact:
@@ -31,9 +17,3 @@ echo Some of the options include "-r" for recursive, "-i" to ignore case, and "-
 	"diff assignment-data assignment-data-copy:"
 
 diff assignment-data assignment-data-copy
-
-
-echo -------------------- PART FIVE --------------------
-echo Number of occurences of the word "photo" in all files within all directories \
-	under assignment-data:
-grep -o -r 'photo' assignment-data | wc -l
