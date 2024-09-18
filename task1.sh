@@ -3,8 +3,6 @@
 # TASK 1
 
 echo -------------------- PART ONE --------------------
-echo The script is placed in the folder titled "assignment2-data", one directory above assigment-data.
-
 echo Making folder titled "IMAGES" in the assignment-data folder.
 mkdir ./assignment-data/IMAGES
 
