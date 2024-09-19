@@ -95,7 +95,7 @@ echo Checking that assignment-data copy is intact. As per TA suggestion, includi
 	# "diff -r assignment-data assignment-data-copy:", which uses the code 'r' to recursively also \
 	# check the files that are missing.
 
-if diff -r assignment-data assignment-data-copy; then
+if diff -r assignment-data assignment-data-proper; then
 	echo "All file and folder names are the same."
 fi
 
